@@ -61,8 +61,25 @@ function updateResultCount(game) {
     computerCounter.textContent = game.computer.toString();
 }
 function moveOneRound(gameResult) {
+    giveUserFeedBack(gameResult);
     let updateGame = upScorePoint(gameResult, newGame);
     updateResultCount(updateGame);
+}
+function giveUserFeedBack(gameResult) {
+    let documentElement = document.querySelector("#game-response");
+    let message = "";
+    switch (gameResult) {
+        case GameResult.WIN:
+            message = "Player wins!";
+            break;
+        case GameResult.LOOSE:
+            message = "Computer wins!";
+            break;
+        case GameResult.TIE:
+            message = "It's a tie!";
+            break;
+    }
+    documentElement.textContent = message;
 }
 function upScorePoint(roundResult, game) {
     switch (roundResult) {

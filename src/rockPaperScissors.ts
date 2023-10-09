@@ -47,21 +47,19 @@ function playRound(playerChoice: GameChoice): GameResult {
     return game;
 }
 
-
 rockButton?.addEventListener("click", () => {
     let roundResult = playRound(GameChoice.ROCK);
-    moveOneRound(roundResult)
-
+    moveOneRound(roundResult);
 });
 
 paperButton?.addEventListener("click", () => {
     let roundResult = playRound(GameChoice.PAPER);
-    moveOneRound(roundResult)
+    moveOneRound(roundResult);
 });
 
 scissorsButton?.addEventListener("click", () => {
     let roundResult = playRound(GameChoice.SCISSORS);
-    moveOneRound(roundResult)
+    moveOneRound(roundResult);
 });
 
 function updateResultCount(game: GameStatus) {
@@ -72,8 +70,26 @@ function updateResultCount(game: GameStatus) {
 }
 
 function moveOneRound(gameResult: GameResult) {
+    giveUserFeedBack(gameResult);
     let updateGame = upScorePoint(gameResult, newGame);
-    updateResultCount(updateGame)
+    updateResultCount(updateGame);
+}
+
+function giveUserFeedBack(gameResult: GameResult) {
+    let documentElement: HTMLElement = document.querySelector("#game-response")!;
+    let message: string = "";
+    switch (gameResult) {
+        case GameResult.WIN:
+            message = "Player wins!";
+            break;
+        case GameResult.LOOSE:
+            message = "Computer wins!";
+            break;
+        case GameResult.TIE:
+            message = "It's a tie!";
+            break;
+    }
+    documentElement.textContent = message;
 }
 
 function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
@@ -90,6 +106,4 @@ function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
     return game;
 }
 
-
 updateResultCount(newGame);
-
