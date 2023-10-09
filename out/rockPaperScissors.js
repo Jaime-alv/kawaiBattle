@@ -62,13 +62,6 @@ function updateResultCount(game) {
     playerCounter.textContent = game.player.toString();
     computerCounter.textContent = game.computer.toString();
 }
-function debugSystem() {
-    let content = document.querySelector(".content");
-    let randomThough = document.createElement("div");
-    randomThough.textContent = "hello world";
-    content.appendChild(randomThough);
-}
 const newGame = new GameStatus();
 updateResultCount(newGame);
-debugSystem();
 //# sourceMappingURL=rockPaperScissors.js.map
