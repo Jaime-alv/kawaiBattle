@@ -1,0 +1,123 @@
+/* 
+Colour palette
+#d9534f	(217,83,79)
+#f9f9f9	(249,249,249)
+#5bc0de	(91,192,222)
+#5cb85c	(92,184,92)
+#428bca	(66,139,202) 
+ */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+header,
+footer,
+.content {
+    padding: 0px 20px;
+}
+
+header {
+    background-color: #5bc0de;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.logo {
+    max-height: 100px;
+}
+
+header .title {
+    color: #d9534f;
+}
+
+.nav {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+.nav a {
+    color: #f9f9f9;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #428bca;
+    display: flex;
+    align-items: center;
+    color: #f9f9f9;
+    justify-content: space-between;
+}
+
+.content {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.content .title {
+    text-align: center;
+}
+
+.player-choice {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.player,
+.computer {
+    text-align: center;
+    font-size: 25px;
+}
+
+footer .love {
+    font-size: 20px;
+}
+
+.love .heart {
+    color: #d9534f;
+    font-size: 30px;
+}
+
+#player,
+#computer {
+    background-color: #5cb85c;
+    border: 3px solid #5cb85c;
+    min-width: 150px;
+    min-height: 150px;
+    border-radius: 20px;
+}
+
+.player-choice button {
+    min-height: 150px;
+    min-width: 150px;
+    border: 0px;
+    border-radius: 20px;
+    background-color: #428bca;
+}
+
+.result-game {
+    min-height: 40px;
+}
+
+.image {
+    height: 100px;
+    width: auto;
+}
