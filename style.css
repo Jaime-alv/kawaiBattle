@@ -99,10 +99,10 @@ footer .love {
 #player,
 #computer {
     background-color: #5cb85c;
-    min-width: 150px;
-    min-height: 150px;
+    width: 150px;
+    height: 150px;
     border-radius: 20px;
-    font-size: 40px;
+    font-size: 100px;
 }
 
 .player-choice button {
