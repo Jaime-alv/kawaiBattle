@@ -47,22 +47,21 @@ function playRound(playerChoice: GameChoice): GameResult {
     return game;
 }
 
-function getPlayerChoice(): GameChoice {
-    let index: number = Math.floor(Math.random() * Object.keys(GameChoice).length);
-    let randomChoice = Object.values(GameChoice)[index];
-    return randomChoice;
-}
 
 rockButton?.addEventListener("click", () => {
-    playRound(GameChoice.ROCK);
+    let roundResult = playRound(GameChoice.ROCK);
+    moveOneRound(roundResult)
+
 });
 
 paperButton?.addEventListener("click", () => {
-    playRound(GameChoice.PAPER);
+    let roundResult = playRound(GameChoice.PAPER);
+    moveOneRound(roundResult)
 });
 
 scissorsButton?.addEventListener("click", () => {
-    playRound(GameChoice.SCISSORS);
+    let roundResult = playRound(GameChoice.SCISSORS);
+    moveOneRound(roundResult)
 });
 
 function updateResultCount(game: GameStatus) {
@@ -70,6 +69,11 @@ function updateResultCount(game: GameStatus) {
     let computerCounter: HTMLElement = document.querySelector("#computer")!;
     playerCounter.textContent = game.player.toString();
     computerCounter.textContent = game.computer.toString();
+}
+
+function moveOneRound(gameResult: GameResult) {
+    let updateGame = upScorePoint(gameResult, newGame);
+    updateResultCount(updateGame)
 }
 
 function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
@@ -81,8 +85,11 @@ function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
             break;
         case GameResult.WIN:
             game.player += 1;
+            break;
     }
     return game;
 }
 
+
 updateResultCount(newGame);
+
