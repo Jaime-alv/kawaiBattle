@@ -17,10 +17,10 @@ class GameStatus {
         this.computer = 0;
     }
 }
+const newGame = new GameStatus();
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
-var gameRound = 0;
 function getComputerChoice() {
     let index = Math.floor(Math.random() * Object.keys(GameChoice).length);
     let randomChoice = Object.values(GameChoice)[index];
@@ -62,6 +62,18 @@ function updateResultCount(game) {
     playerCounter.textContent = game.player.toString();
     computerCounter.textContent = game.computer.toString();
 }
-const newGame = new GameStatus();
+function upScorePoint(roundResult, game) {
+    switch (roundResult) {
+        case GameResult.LOOSE:
+            game.computer += 1;
+            break;
+        case GameResult.TIE:
+            break;
+        case GameResult.WIN:
+            game.player += 1;
+    }
+    return game;
+}
 updateResultCount(newGame);
+alert(newGame);
 //# sourceMappingURL=rockPaperScissors.js.map

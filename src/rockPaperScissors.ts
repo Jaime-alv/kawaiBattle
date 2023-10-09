@@ -15,10 +15,11 @@ class GameStatus {
     computer: number = 0;
 }
 
+const newGame = new GameStatus();
+
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
-var gameRound = 0;
 
 function getComputerChoice(): GameChoice {
     let index: number = Math.floor(Math.random() * Object.keys(GameChoice).length);
@@ -71,6 +72,17 @@ function updateResultCount(game: GameStatus) {
     computerCounter.textContent = game.computer.toString();
 }
 
-const newGame = new GameStatus();
+function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
+    switch (roundResult) {
+        case GameResult.LOOSE:
+            game.computer += 1;
+            break;
+        case GameResult.TIE:
+            break;
+        case GameResult.WIN:
+            game.player += 1;
+    }
+    return game;
+}
 
 updateResultCount(newGame);
