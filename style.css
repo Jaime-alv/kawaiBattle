@@ -8,7 +8,8 @@ Colour palette
  */
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
     margin: 0px;
     display: flex;
     flex-direction: column;
@@ -58,27 +59,35 @@ footer {
 }
 
 .content {
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
 }
 
 .content .title {
     text-align: center;
+    padding-bottom: 80px;
 }
 
-.player-choice {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
+.title .main,
+.title .secondary {
+    
 }
 
+.title .main {
+    font-size: 60px;
+
+}
+
+.player-choice,
 .counter {
     display: flex;
+    gap: 5%;
     justify-content: center;
-    gap: 10%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .player,
@@ -96,13 +105,26 @@ footer .love {
     font-size: 30px;
 }
 
-#player,
-#computer {
+.player,
+.computer {
     background-color: #5cb85c;
+}
+
+.player,
+.computer,
+.versus {
     width: 150px;
     height: 150px;
     border-radius: 20px;
-    font-size: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .player-choice button {
@@ -120,4 +142,20 @@ footer .love {
 .image {
     height: 100px;
     width: auto;
+}
+
+#player,
+#computer,
+#versus {
+    font-size: 100px;
+}
+
+#versus {
+    color: #d9534f;
+}
+
+.score-container .text {
+    font-size: 30px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
