@@ -43,17 +43,35 @@ function playRound(playerChoice) {
     let game = comparePlayerVsComputer(playerChoice, computerChoice);
     return game;
 }
-rockButton?.addEventListener("click", () => {
+rockButton.addEventListener("click", () => {
     let roundResult = playRound(GameChoice.ROCK);
     moveOneRound(roundResult);
 });
-paperButton?.addEventListener("click", () => {
+rockButton.addEventListener("mouseover", () => {
+    colorBackgroundButton(rockButton);
+});
+rockButton.addEventListener("mouseout", () => {
+    colorBackgroundButtonBack(rockButton);
+});
+paperButton.addEventListener("click", () => {
     let roundResult = playRound(GameChoice.PAPER);
     moveOneRound(roundResult);
 });
-scissorsButton?.addEventListener("click", () => {
+paperButton.addEventListener("mouseover", () => {
+    colorBackgroundButton(paperButton);
+});
+paperButton.addEventListener("mouseout", () => {
+    colorBackgroundButtonBack(paperButton);
+});
+scissorsButton.addEventListener("click", () => {
     let roundResult = playRound(GameChoice.SCISSORS);
     moveOneRound(roundResult);
+});
+scissorsButton.addEventListener("mouseover", () => {
+    colorBackgroundButton(scissorsButton);
+});
+scissorsButton.addEventListener("mouseout", () => {
+    colorBackgroundButtonBack(scissorsButton);
 });
 function updateResultCount(game) {
     let playerCounter = document.querySelector("#player");
@@ -77,8 +95,6 @@ function moveOneRound(gameResult) {
 function andTheWinnerIs(winner) {
     let lastGameResult = document.querySelector("#game-response");
     lastGameResult.remove();
-    // let message: string = "";
-    // lastGameResult.textContent = message;
     let content = document.querySelector(".content");
     let counterElement = document.querySelector(".player-choice");
     counterElement.remove();
@@ -124,6 +140,12 @@ function upScorePoint(roundResult, game) {
     }
     game.round += 1;
     return game;
+}
+function colorBackgroundButton(button) {
+    button.style.background = "#5cb85c";
+}
+function colorBackgroundButtonBack(button) {
+    button.style.background = "#428bca";
 }
 updateResultCount(newGame);
 //# sourceMappingURL=rockPaperScissors.js.map

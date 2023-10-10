@@ -18,9 +18,48 @@ class GameStatus {
 
 const newGame = new GameStatus();
 
-const rockButton = document.querySelector("#rock");
-const paperButton = document.querySelector("#paper");
-const scissorsButton = document.querySelector("#scissors");
+const rockButton: HTMLElement = document.querySelector("#rock")!;
+const paperButton: HTMLElement = document.querySelector("#paper")!;
+const scissorsButton: HTMLElement = document.querySelector("#scissors")!;
+
+rockButton.addEventListener("click", () => {
+    let roundResult = playRound(GameChoice.ROCK);
+    moveOneRound(roundResult);
+});
+
+rockButton.addEventListener("mouseover", () => {
+    colorBackgroundButton(rockButton);
+});
+
+rockButton.addEventListener("mouseout", () => {
+    colorBackgroundButtonBack(rockButton);
+});
+
+paperButton.addEventListener("click", () => {
+    let roundResult = playRound(GameChoice.PAPER);
+    moveOneRound(roundResult);
+});
+
+paperButton.addEventListener("mouseover", () => {
+    colorBackgroundButton(paperButton);
+});
+
+paperButton.addEventListener("mouseout", () => {
+    colorBackgroundButtonBack(paperButton);
+});
+
+scissorsButton.addEventListener("click", () => {
+    let roundResult = playRound(GameChoice.SCISSORS);
+    moveOneRound(roundResult);
+});
+
+scissorsButton.addEventListener("mouseover", () => {
+    colorBackgroundButton(scissorsButton);
+});
+
+scissorsButton.addEventListener("mouseout", () => {
+    colorBackgroundButtonBack(scissorsButton);
+});
 
 function getComputerChoice(): GameChoice {
     let index: number = Math.floor(Math.random() * Object.keys(GameChoice).length);
@@ -47,21 +86,6 @@ function playRound(playerChoice: GameChoice): GameResult {
     let game = comparePlayerVsComputer(playerChoice, computerChoice);
     return game;
 }
-
-rockButton?.addEventListener("click", () => {
-    let roundResult = playRound(GameChoice.ROCK);
-    moveOneRound(roundResult);
-});
-
-paperButton?.addEventListener("click", () => {
-    let roundResult = playRound(GameChoice.PAPER);
-    moveOneRound(roundResult);
-});
-
-scissorsButton?.addEventListener("click", () => {
-    let roundResult = playRound(GameChoice.SCISSORS);
-    moveOneRound(roundResult);
-});
 
 function updateResultCount(game: GameStatus) {
     let playerCounter: HTMLElement = document.querySelector("#player")!;
@@ -133,6 +157,14 @@ function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
     }
     game.round += 1;
     return game;
+}
+
+function colorBackgroundButton(button: HTMLElement) {
+    button.style.background = "#5cb85c";
+}
+
+function colorBackgroundButtonBack(button: HTMLElement) {
+    button.style.background = "#428bca";
 }
 
 updateResultCount(newGame);
