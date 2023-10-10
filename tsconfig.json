@@ -7,11 +7,11 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "sourceMap": true,
-        "outDir": "./out",
+        "outDir": "src/javascript/",
         "esModuleInterop": true,
         "strict": true
     },
-    "include": ["src/**/*"],
+    "include": ["src/typescript/**/*"],
     "exclude": [
         "node_modules",
         "**/node_modules/*"
