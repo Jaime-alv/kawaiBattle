@@ -15,6 +15,7 @@ class GameStatus {
     constructor() {
         this.player = 0;
         this.computer = 0;
+        this.round = 0;
     }
 }
 const newGame = new GameStatus();
@@ -57,8 +58,10 @@ scissorsButton?.addEventListener("click", () => {
 function updateResultCount(game) {
     let playerCounter = document.querySelector("#player");
     let computerCounter = document.querySelector("#computer");
+    let roundCounter = document.querySelector("#round-number");
     playerCounter.textContent = game.player.toString();
     computerCounter.textContent = game.computer.toString();
+    roundCounter.textContent = game.round.toString();
 }
 function moveOneRound(gameResult) {
     let updateGame = upScorePoint(gameResult, newGame);
@@ -115,6 +118,7 @@ function upScorePoint(roundResult, game) {
             game.player += 1;
             break;
     }
+    game.round += 1;
     return game;
 }
 updateResultCount(newGame);

@@ -104,6 +104,25 @@ footer {
     height: 150px;
 }
 
+.counter {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.round-counter {
+    font-size: 20px;
+    padding: 20px 0px;
+}
+
+#round-number {
+    color: #5bc0de;
+}
+
+.score {
+    display: flex;
+}
+
 .winner {
     font-size: 60px;
     color: #d9534f;
@@ -174,7 +193,8 @@ footer .love {
     color: #d9534f;
 }
 
-.score-container .text {
+.score-container .text,
+.round-counter {
     font-size: 30px;
     font-style: italic;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

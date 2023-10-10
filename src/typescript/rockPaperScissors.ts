@@ -13,6 +13,7 @@ enum GameChoice {
 class GameStatus {
     player: number = 0;
     computer: number = 0;
+    round: number = 0;
 }
 
 const newGame = new GameStatus();
@@ -65,8 +66,10 @@ scissorsButton?.addEventListener("click", () => {
 function updateResultCount(game: GameStatus) {
     let playerCounter: HTMLElement = document.querySelector("#player")!;
     let computerCounter: HTMLElement = document.querySelector("#computer")!;
+    let roundCounter: HTMLElement = document.querySelector("#round-number")!;
     playerCounter.textContent = game.player.toString();
     computerCounter.textContent = game.computer.toString();
+    roundCounter.textContent = game.round.toString();
 }
 
 function moveOneRound(gameResult: GameResult) {
@@ -126,6 +129,7 @@ function upScorePoint(roundResult: GameResult, game: GameStatus): GameStatus {
             game.player += 1;
             break;
     }
+    game.round += 1;
     return game;
 }
 
