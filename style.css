@@ -64,30 +64,41 @@ footer {
     justify-content: space-evenly;
     margin: 0px;
     padding: 0px;
+    padding-bottom: 40px;
 }
 
 .content .title {
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 .title .main,
 .title .secondary {
+    margin: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .title .main {
     font-size: 60px;
+    padding-bottom: 10px;
+}
 
+.secondary {
+    font-style: italic;
 }
 
 .player-choice,
 .counter {
     display: flex;
-    gap: 5%;
+    gap: 20px;
     justify-content: center;
     padding: 0px;
     margin: 0px;
+}
+
+.player-choice,
+.winner {
+    height: 150px;
 }
 
 .player,

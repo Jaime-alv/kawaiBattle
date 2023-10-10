@@ -76,7 +76,7 @@ function andTheWinnerIs(winner) {
     let counterElement = document.querySelector(".player-choice");
     counterElement.remove();
     let winnerBanner = document.createElement("div");
-    winnerBanner.classList.add("#winner");
+    winnerBanner.classList.add("winner");
     winnerBanner.textContent = winner;
     content.appendChild(winnerBanner);
 }
