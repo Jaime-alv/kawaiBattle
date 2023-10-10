@@ -85,7 +85,7 @@ function andTheWinnerIs(winner: string) {
     let counterElement: HTMLElement = document.querySelector(".player-choice")!;
     counterElement.remove();
     let winnerBanner = document.createElement("div");
-    winnerBanner.classList.add("#winner");
+    winnerBanner.classList.add("winner");
     winnerBanner.textContent = winner;
     content.appendChild(winnerBanner);
 }
