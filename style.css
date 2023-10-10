@@ -32,7 +32,7 @@ header {
 }
 
 .logo {
-    max-height: 100px;
+    max-height: 80px;
 }
 
 header .title {
@@ -136,12 +136,12 @@ footer {
 }
 
 footer .love {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .love .heart {
     color: #d9534f;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .player,
