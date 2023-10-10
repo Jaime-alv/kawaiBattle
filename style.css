@@ -51,6 +51,7 @@ header .title {
 }
 
 footer {
+    padding: 5px 20px;
     background-color: #428bca;
     display: flex;
     align-items: center;
@@ -63,8 +64,8 @@ footer {
     flex-direction: column;
     justify-content: space-evenly;
     margin: 0px;
-    padding: 0px;
     padding-bottom: 40px;
+    padding-top: 10px;
 }
 
 .content .title {
