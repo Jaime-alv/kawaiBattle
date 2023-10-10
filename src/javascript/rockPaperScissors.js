@@ -65,16 +65,20 @@ function updateResultCount(game) {
 }
 function moveOneRound(gameResult) {
     let updateGame = upScorePoint(gameResult, newGame);
+    updateResultCount(updateGame);
     if (updateGame.computer === 5 || updateGame.player === 5) {
         let message = getWinnerMessage(updateGame);
         andTheWinnerIs(message);
     }
     else {
         giveUserFeedBack(gameResult);
-        updateResultCount(updateGame);
     }
 }
 function andTheWinnerIs(winner) {
+    let lastGameResult = document.querySelector("#game-response");
+    lastGameResult.remove();
+    // let message: string = "";
+    // lastGameResult.textContent = message;
     let content = document.querySelector(".content");
     let counterElement = document.querySelector(".player-choice");
     counterElement.remove();

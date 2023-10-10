@@ -74,16 +74,18 @@ function updateResultCount(game: GameStatus) {
 
 function moveOneRound(gameResult: GameResult) {
     let updateGame = upScorePoint(gameResult, newGame);
+    updateResultCount(updateGame);
     if (updateGame.computer === 5 || updateGame.player === 5) {
         let message: string = getWinnerMessage(updateGame);
         andTheWinnerIs(message);
     } else {
         giveUserFeedBack(gameResult);
-        updateResultCount(updateGame);
     }
 }
 
 function andTheWinnerIs(winner: string) {
+    let lastGameResult: HTMLElement = document.querySelector("#game-response")!;
+    lastGameResult.remove();
     let content: HTMLElement = document.querySelector(".content")!;
     let counterElement: HTMLElement = document.querySelector(".player-choice")!;
     counterElement.remove();
