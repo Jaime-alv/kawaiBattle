@@ -73,7 +73,8 @@ footer {
 }
 
 .title .main,
-.title .secondary {
+.title .secondary,
+.winner {
     margin: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -83,12 +84,14 @@ footer {
     padding-bottom: 10px;
 }
 
-.secondary {
+.secondary, 
+.winner {
     font-style: italic;
 }
 
 .player-choice,
-.counter {
+.counter,
+.winner {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -99,6 +102,12 @@ footer {
 .player-choice,
 .winner {
     height: 150px;
+}
+
+.winner {
+    font-size: 60px;
+    color: #d9534f;
+    text-align: center;
 }
 
 .player,
