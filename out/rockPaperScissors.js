@@ -61,9 +61,32 @@ function updateResultCount(game) {
     computerCounter.textContent = game.computer.toString();
 }
 function moveOneRound(gameResult) {
-    giveUserFeedBack(gameResult);
     let updateGame = upScorePoint(gameResult, newGame);
-    updateResultCount(updateGame);
+    if (updateGame.computer === 5 || updateGame.player === 5) {
+        let message = getWinnerMessage(updateGame);
+        andTheWinnerIs(message);
+    }
+    else {
+        giveUserFeedBack(gameResult);
+        updateResultCount(updateGame);
+    }
+}
+function andTheWinnerIs(winner) {
+    let content = document.querySelector(".content");
+    let counterElement = document.querySelector(".player-choice");
+    counterElement.remove();
+    let winnerBanner = document.createElement("div");
+    winnerBanner.classList.add("#winner");
+    winnerBanner.textContent = winner;
+    content.appendChild(winnerBanner);
+}
+function getWinnerMessage(game) {
+    if (game.computer === 5) {
+        return "Computer wins! Better luck next time.";
+    }
+    else {
+        return "You win! Congratulations.";
+    }
 }
 function giveUserFeedBack(gameResult) {
     let documentElement = document.querySelector("#game-response");

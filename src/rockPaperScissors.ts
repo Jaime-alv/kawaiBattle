@@ -70,9 +70,32 @@ function updateResultCount(game: GameStatus) {
 }
 
 function moveOneRound(gameResult: GameResult) {
-    giveUserFeedBack(gameResult);
     let updateGame = upScorePoint(gameResult, newGame);
-    updateResultCount(updateGame);
+    if (updateGame.computer === 5 || updateGame.player === 5) {
+        let message: string = getWinnerMessage(updateGame);
+        andTheWinnerIs(message);
+    } else {
+        giveUserFeedBack(gameResult);
+        updateResultCount(updateGame);
+    }
+}
+
+function andTheWinnerIs(winner: string) {
+    let content: HTMLElement = document.querySelector(".content")!;
+    let counterElement: HTMLElement = document.querySelector(".player-choice")!;
+    counterElement.remove();
+    let winnerBanner = document.createElement("div");
+    winnerBanner.classList.add("#winner");
+    winnerBanner.textContent = winner;
+    content.appendChild(winnerBanner);
+}
+
+function getWinnerMessage(game: GameStatus): string {
+    if (game.computer === 5) {
+        return "Computer wins! Better luck next time.";
+    } else {
+        return "You win! Congratulations.";
+    }
 }
 
 function giveUserFeedBack(gameResult: GameResult) {
